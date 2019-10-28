@@ -1,0 +1,48 @@
+h4{
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p{
+    text-align: center;
+}
+
+button{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.register{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+    align-items: center;
+    background-color: inherit;
+}
+
+form{
+    font-weight: bolder;
+}
+
+h3{
+    margin-left: 6em;
+    margin-right: 6em;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+}
+
+

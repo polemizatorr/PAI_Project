@@ -1,0 +1,87 @@
+p{
+    margin-left: 2em !important;
+    margin-right: 2em !important;
+    text-align: center;
+    font-family: 'Signika', sans-serif;
+    font-size: 1.5em;
+}
+
+h4{
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.register{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+    align-items: center;
+    background-color: inherit;
+}
+
+form{
+    font-weight: bolder;
+}
+
+h3{
+    margin-left: 6em;
+    margin-right: 6em;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+}
+
+.contact{
+    margin-left: 3em;
+    margin-right: 3em;
+    text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    margin-right: 5em;
+    margin-left: 5em;
+    text-align: left;
+}
+
+.flex-container > p {
+    text-align: left;
+}
+
+.advert{
+    margin-left: 4em;
+    margin-right: 4em;
+    background-color: #f1cd67;
+    font-size: 1.5em;
+    border-radius: 0.5em;
+}
+
+.dropdown-menu > li{
+    background-color: #e1bd57;
+}
+
+.btn-primary{
+    background-color: #e1bd57!important;
+    border-color: #ffe587!important;
+
+}
+
