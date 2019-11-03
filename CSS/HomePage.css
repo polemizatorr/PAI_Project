@@ -2,7 +2,7 @@ p{
     margin-left: 6px !important;
     margin-right: 6px !important;
     text-align: center;
-    font-family: 'Signika', sans-serif;
+    font-family: 'Boogaloo', cursive;
     font-size: 1.5em;
 }
 
@@ -35,6 +35,7 @@ button{
     text-align: center;
     align-items: center;
     background-color: inherit;
+    font-family: 'Boogaloo', cursive!important;
 }
 
 form{
@@ -48,3 +49,37 @@ h3{
     font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
 }
+
+
+@media only screen and (max-device-width: 992px){
+    body {
+        font-size: 48px!important;
+    }
+    .container {
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    h2{
+        font-size: 1.3em!important;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .logo > img {
+        width: 7.5em;
+    }
+
+    btn btn-success{
+        box-sizing: border-box;
+    }
+
+    btn btn-info{
+        box-sizing: border-box;
+    }
+}
+
