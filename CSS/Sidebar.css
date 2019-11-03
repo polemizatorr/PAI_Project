@@ -1,36 +1,36 @@
-.sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-    background-color: #e1bd57;
-    navbutton_home_hovered: ;
-
-}
-
-.sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-}
-
-.sidebar a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.sidebar a:hover:not(.active) {
-    background-color: #c19d37;
-    color: white;
-}
-
 div.content {
     margin-left: 200px;
     padding: 1px 16px;
     height: 1000px;
+}
+
+.container-fluid{
+    background-color: #e1bd57;
+    font-family: 'Signika', sans-serif;
+}
+
+.nav nabar-nav{
+    background-color: #e1bd57!important;
+    font-family: 'Signika', sans-serif;
+}
+
+a{
+    color: black!important;
+    font-family: 'Signika', sans-serif!important;
+}
+
+navbar-brand >a {
+    font-family: 'Signika', sans-serif!important;
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+    background-color: #e1bd57!important;
+    font-family: 'Signika', sans-serif;
+}
+
+.active{
+    background-color: #e1bd57!important;
+    font-family: 'Signika', sans-serif;
 }
 
 @media screen and (max-width: 700px) {
@@ -52,4 +52,21 @@ div.content {
 
 a:hover{
     color: blue;
+}
+
+.nav navbar-nav{
+    background-color: ;
+}
+
+@media only screen and (max-device-width: 992px){
+
+    .sidebar{
+        font-size: 0.6em;
+        font-family: 'Boogaloo', cursive;
+    }
+
+    h4{
+        font-family: 'Boogaloo', cursive;
+        font-size: 0.6em;
+    }
 }
