@@ -1,0 +1,72 @@
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+.container-fluid{
+    background-color: #e1bd57;
+    font-family: 'Signika', sans-serif;
+}
+
+.nav nabar-nav{
+    background-color: #e1bd57!important;
+    font-family: 'Signika', sans-serif;
+}
+
+a{
+    color: black!important;
+    font-family: 'Signika', sans-serif!important;
+}
+
+navbar-brand >a {
+    font-family: 'Signika', sans-serif!important;
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+    background-color: #e1bd57!important;
+    font-family: 'Signika', sans-serif;
+}
+
+.active{
+    background-color: #e1bd57!important;
+    font-family: 'Signika', sans-serif;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+a:hover{
+    color: blue;
+}
+
+.nav navbar-nav{
+    <!--- background-color: ; -->
+}
+
+@media only screen and (max-device-width: 992px){
+
+    .sidebar{
+        font-size: 0.6em;
+        font-family: 'Boogaloo', cursive;
+    }
+
+    h4{
+        font-family: 'Boogaloo', cursive;
+        font-size: 0.6em;
+    }
+}
