@@ -32,7 +32,7 @@
         <img src="/Public/Images/TeachUp.png"/>
     </div>
     <h2>Register Form</h2><br>
-    <form>
+    <form method="post" action="?page=register">
         <p>Username:</p>
         <input type="text" name="Username"><br>
         <p>E-mail:</p>
@@ -41,14 +41,8 @@
         <input type="password" name="Password"><br>
         <p>Repeat password:</p>
         <input type="password" name="Password2"><br>
-        <p>Date of birth</p>
-        <input type="date" name="Birthday"><br>
-        <p>Choose your Gender</p>
-        <select class="browser-default custom-select">
-            <option value="1">Male</option>
-            <option value="2">Female</option>
-        </select><br>
-        <input type="checkbox"> I accept service regulations.<br><br>
+        <p>Type your name:</p>
+        <input type="text" name="Name"><br>
 
         <input type="submit" class="btn btn-success" value="Register!">
     </form>

@@ -48,9 +48,53 @@ class SecurityController extends AppController
         $this->render('login', ['messages' => ['You have been successfully logged out.']]);
     }
 
-    public function register()
+    public function renderRegister()
     {
         $this->render('register');
+    }
+
+    public function register()
+    {
+        $UserRepository = new UserRepository();
+
+        if ($this -> isPost())
+        {
+            $username = $_POST['Username'];
+            $email = $_POST['Email'];
+            $password = $_POST['Password'];
+            $password2 = $_POST['Password2'];
+            $name = $_POST['Name'];
+
+            if ($username === '' || $email === '' || $password === '' || $password2 === '' || $name === '')
+            {
+                $this->render("Register" ,['messages' => ['Fill all inputs']]);
+                return;
+            }
+
+            if ($password !== $password2) {
+                $this->render('Register', ['messages' => ['Password 1 and password 2 are diffrent!']]);
+                return;
+            }
+
+            if (!$UserRepository->isUsernameAvailable($username))
+            {
+                $this->render('Register', ['messages' => ['This Username is busy!']]);
+                return;
+            }
+
+            if (!$UserRepository->isEmailAvailable($email))
+            {
+                $this->render('Register', ['messages' => ['This Email is busy!']]);
+                return;
+            }
+
+            $UserRepository -> addUser($username, $password, $email, $name, "User");
+        }
+
+        $url = "http://$_SERVER[HTTP_HOST]/";
+        header("Location: {$url}?page=login");
+        $this->render("login", ['messages' => ['Accountant has been created.']]);
+
     }
 
 

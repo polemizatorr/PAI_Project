@@ -38,9 +38,11 @@ class Routing {
             'Ads' => [
                 'controller' => 'BoardController',
                 'action' => 'Ads'
-            ]
-
-        ];
+            ],
+            'renderRegister' => [
+                'controller' => 'SecurityController',
+                'action' => 'renderRegister'
+        ]];
     }
 
     public function run(){

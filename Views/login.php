@@ -49,7 +49,7 @@
         <input type="submit" class="btn btn-success" value="Log in!">
     </form>
 
-    <form action="?page=register" method="post">
+    <form action="?page=renderRegister" method="post">
     <div class="register">
         <br>
         <h4>No accountant yet? Register now for free!</h4>
