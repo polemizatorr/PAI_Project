@@ -1,7 +1,8 @@
 <?php
 
 require_once 'AppController.php';
-require_once (__DIR__.'//../Models/User/User.php');
+require_once 'Repository/UserRepository.php';
+require_once 'Models/User/User.php';
 
 
 class SecurityController extends AppController
@@ -9,7 +10,8 @@ class SecurityController extends AppController
 
     public function Login()
     {
-        $user = new User('johnny@pk.edu.pl', 'admin', 'Johnny', 'Snow');
+        $UserRepository = new UserRepository();
+
 
 
         if ($this->isPost()) {
@@ -17,8 +19,10 @@ class SecurityController extends AppController
             $username = $_POST['Username'];
             $password = $_POST['Password'];
 
+            $user = $UserRepository->getUser($username);
+
             if ($user->getUsername() !== $username) {
-                $this->render('login', ['messages' => ['This username is busy yet']]);
+                $this->render('login', ['messages' => ['Invalid Username!']]);
                 return;
             }
 
@@ -26,6 +30,8 @@ class SecurityController extends AppController
                 $this->render('login', ['messages' => ['Wrong password!']]);
                 return;
             }
+            $_SESSION['Username'] = $username;
+
 
             $url = "http://$_SERVER[HTTP_HOST]/";
             header("Location: {$url}?page=board");

@@ -1,6 +1,6 @@
 <?php
-    require_once(__DIR__.'/Controllers//SecurityController.php');
-    require_once(__DIR__.'/Controllers//BoardController.php');
+    require_once(__DIR__.'/Controllers/SecurityController.php');
+    require_once(__DIR__.'/Controllers/BoardController.php');
 
 class Routing {
     private $routes = [];
@@ -17,11 +17,27 @@ class Routing {
             ],
             'logout' => [
                 'controller' => 'SecurityController',
-                'action' => 'login'
+                'action' => 'logout'
             ],
             'register' => [
                 'controller' => 'SecurityController',
                 'action' => 'register'
+            ],
+            'contact' => [
+                'controller' => 'BoardController',
+                'action' => 'contact'
+            ],
+            'AboutUs' => [
+                'controller' => 'BoardController',
+                'action' => 'AboutUs'
+            ],
+            'HomePage' => [
+                'controller' => 'BoardController',
+                'action' => 'HomePage'
+            ],
+            'Ads' => [
+                'controller' => 'BoardController',
+                'action' => 'Ads'
             ]
 
         ];

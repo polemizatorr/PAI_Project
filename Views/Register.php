@@ -10,19 +10,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
-<body style="background-color: #ffe587"><nav class="navbar navbar-inverse">
+<body style="background-color: #ffe587">
+<nav class="navbar navbar-inverse">
+
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="Views/Login.php">TeachUp Private Lessons</a>
+            <a class="navbar-brand" href="?page=login" >TeachUp Private Lessons</a>
         </div>
+
         <ul class="nav navbar-nav">
-            <li class="active"><a href="Views/HomePage.php">Home</a></li>
-            <li class="active"><a href="Views/Ads.php">Ads</a></li>
-            <li class="active"><a href="Views/AboutUs.php">About us</a></li>
-            <li class="active"><a href="Views/Contact.php">Contact</a></li>
-            <li class="active"><a href="Views/Register.php">Register</a></li>
+            <li class="active"><a href="?page=HomePage">Home</a></li>
+            <li class="active"><a href="?page=Ads">Ads</a></li>
+            <li class="active"><a href="?page=AboutUs">About us</a></li>
+            <li class="active"><a href="?page=contact">Contact</a></li>
         </ul>
-        </li>
+
     </div>
 </nav>
 <div class="container">

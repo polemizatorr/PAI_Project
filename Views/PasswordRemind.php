@@ -14,16 +14,11 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="Views/Login.php">TeachUp Private Lessons</a>
+            <a class="navbar-brand" href="?page=login" >TeachUp Private Lessons</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="Views/HomePage.php">Home</a></li>
-            <li class="active"><a href="Views/Ads.php">Ads</a></li>
-            <li class="active"><a href="Views/AboutUs.php">About us</a></li>
-            <li class="active"><a href="Views/Contact.php">Contact</a></li>
-            <li class="active"><a href="Views/Register.php">Register</a></li>
+            <li class="active"><a href="?page=register">Register</a></li>
         </ul>
-        </li>
     </div>
 </nav>
 <div class="container">
