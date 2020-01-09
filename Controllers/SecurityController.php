@@ -21,6 +21,11 @@ class SecurityController extends AppController
 
             $user = $UserRepository->getUser($username);
 
+            if (is_null($user)){
+                $this->render('login', ['messages' => ['Username not found!']]);
+                return;
+            }
+
             if ($user->getUsername() !== $username) {
                 $this->render('login', ['messages' => ['Invalid Username!']]);
                 return;
@@ -50,7 +55,7 @@ class SecurityController extends AppController
 
     public function renderRegister()
     {
-        $this->render('register');
+        $this->render('Register');
     }
 
     public function register()
@@ -67,7 +72,25 @@ class SecurityController extends AppController
 
             if ($username === '' || $email === '' || $password === '' || $password2 === '' || $name === '')
             {
-                $this->render("Register" ,['messages' => ['Fill all inputs']]);
+                $this->render("Register", ['messages' => ['Fill all inputs']]);
+                return;
+            }
+
+            if (strlen($username) < 6 || strlen($username) > 32)
+            {
+                $this->render("Register", ['messages' => ['Username should has 6-32 signs']]);
+                return;
+            }
+
+            if (strlen($email) < 6 || strlen($email) > 32)
+            {
+                $this->render("Register", ['messages' => ['Email should has 6-32 signs']]);
+                return;
+            }
+
+            if (strlen($password) < 6 || strlen($password) > 32)
+            {
+                $this->render("Register", ['messages' => ['Password should has 6-32 signs']]);
                 return;
             }
 

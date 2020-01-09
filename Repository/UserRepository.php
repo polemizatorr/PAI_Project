@@ -17,7 +17,7 @@ class UserRepository extends Repository {
 
         $this->database = NULL;
 
-        if($user == false) {
+        if($user === false) {
             return null;
         }
 
@@ -26,7 +26,8 @@ class UserRepository extends Repository {
             $user['Email'],
             $user['Name'],
             $user['Password'],
-            $user['Role']
+            $user['Role'],
+            $user['IDUser']
         );
     }
 
