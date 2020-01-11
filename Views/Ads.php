@@ -1,4 +1,5 @@
 <?php
+require_once ("Controllers/BoardController.php");
 $url = "http://$_SERVER[HTTP_HOST]/";
 if (!isset($_SESSION['Username']))
 {
@@ -30,6 +31,7 @@ if (!isset($_SESSION['Username']))
             <li class="active"><a href="?page=Ads">Ads</a></li>
             <li class="active"><a href="?page=AboutUs">About us</a></li>
             <li class="active"><a href="?page=contact">Contact</a></li>
+            <li class="active"><a href="?page=renderAdvertisement">Add Advertisement</a></li>
             <li class="active"><a>Logged as: <?php  if (isset($_SESSION['Username'])) print_r($_SESSION['Username'])?></a> </li>
 
     </div>
@@ -41,29 +43,20 @@ if (!isset($_SESSION['Username']))
     <h2>Advertisements list:</h2><br>
 
         <div class="flex-container">
+
+            <?php foreach ($Ads as $ad):?>
+                 <?php foreach ($ad as $Ad):?>
             <div class="advert">
-                <b>Name: </b><br>
-                <b>Surname: </b><br>
-                <b>Age: </b><br>
-                <b>Gender: </b><br>
-                <b>Status: </b><br>
-
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Subjects list
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                    </ul>
-                </div>
-
-
+                <b>Email:<?= $Ad->getEmail();?> </b><br>
+                <b>Subject:<?= $Ad->getSubject();?> </b><br>
+                <b>Level: <?= $Ad->getTeachLevel();?></b><br>
+                <b>Description: <?= $Ad->getDescription();?><b><br>
+                        <br><br>
 
             </div>
-            <div>
+                <?php endforeach ?>
+            <?php endforeach ?>
 
-            </div>
 
         </div>
 

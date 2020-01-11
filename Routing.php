@@ -42,7 +42,15 @@ class Routing {
             'renderRegister' => [
                 'controller' => 'SecurityController',
                 'action' => 'renderRegister'
-        ]];
+            ],
+            'addAdvertisement' => [
+                'controller' => 'BoardController',
+                'action' => 'addAdvertisement'
+            ],
+            'renderAdvertisement' => [
+                'controller' => 'BoardController',
+                'action' => 'renderAddAdvertisement']
+            ];
     }
 
     public function run(){

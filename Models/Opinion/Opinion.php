@@ -6,14 +6,16 @@ class Opinion  {
     private $Knowledge;
     private $Accessibility;
     private $Involvement;
+    private $IDAdvertisement;
 
-    public function __construct($WellTeaching, $Knowledge, $Accessibility, $Involvement, $IDOpinion = 0)
+    public function __construct($WellTeaching, $Knowledge, $Accessibility, $Involvement, $IDOpinion , $IDAdvertisement)
     {
         $this -> WellTeaching = $WellTeaching;
         $this -> Knowledge = $Knowledge;
         $this -> Accessibility = $Accessibility;
         $this -> Involvement = $Involvement;
         $this -> IDOpinion = $IDOpinion;
+        $this -> IDAdvertisement = $IDAdvertisement;
     }
 
     public function getWellTeaching(): int
@@ -39,6 +41,11 @@ class Opinion  {
     public function getIDOpinion(): int
     {
         return $this -> IDOpinion;
+    }
+
+    public function getIDAdvertisement(): int
+    {
+        return $this -> IDAdvertisement;
     }
 
     public function setIDOpinion(int $IDOpinion)

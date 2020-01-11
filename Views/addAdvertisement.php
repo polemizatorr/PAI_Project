@@ -38,17 +38,22 @@ if (!isset($_SESSION['Username']))
     <div class="logo">
         <img src="/Public/Images/TeachUp.png"/>
     </div>
-    <h2>Edit your profile.<br></h2>
-    <form id="EditProfile">
-        <p>Name:</p>
-        <input type="text" name="Name"><br>
-        <p>Surname:</p>
-        <input type="text" name="Surname"><br>
+    <h4>Fill the form below to add Advetrisement.<br><br></h4> <!--- here form to create Adv -->
+    <form id="Adv" method="post" action="?page=addAdvertisement">
+        Insert subject:<br>
+        <input type="text" name="Subject"><br>
+        Insert your skill level(Basic, mid, advanced):<br>
+        <input type="text" name="TeachLevel"><br>
+        <p>Add description to your Adv:</p>
+        <textarea rows="8" cols="50" name="Description" form="Adv">
+
+        </textarea><br>
+        <input type="submit" class="btn btn-success" value="Add Advert">
+
     </form>
-    <p>Your Description:</p>
-    <textarea rows="8" cols="50" name="Description" form="EditProfile">
-        Enter your description here...
-    </textarea>
+
+    <br><br>
+
 
 
 </div>

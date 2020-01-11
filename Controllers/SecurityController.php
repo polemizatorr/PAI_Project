@@ -39,7 +39,7 @@ class SecurityController extends AppController
 
 
             $url = "http://$_SERVER[HTTP_HOST]/";
-            header("Location: {$url}?page=board");
+            header("Location: {$url}?page=HomePage");
         }
 
         $this->render('login');

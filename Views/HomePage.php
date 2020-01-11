@@ -29,6 +29,7 @@ if (!isset($_SESSION['Username']))
             <li class="active"><a href="?page=Ads">Ads</a></li>
             <li class="active"><a href="?page=AboutUs">About us</a></li>
             <li class="active"><a href="?page=contact">Contact</a></li>
+            <li class="active"><a href="?page=renderAdvertisement">Add Advertisement</a></li>
             <li class="active"><a>Logged as: <?php  if (isset($_SESSION['Username'])) print_r($_SESSION['Username'])?></a> </li>
         </ul>
 

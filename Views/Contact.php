@@ -22,6 +22,7 @@
             <li class="active"><a href="?page=Ads">Ads</a></li>
             <li class="active"><a href="?page=AboutUs">About us</a></li>
             <li class="active"><a href="?page=contact">Contact</a></li>
+            <li class="active"><a href="?page=renderAdvertisement">Add Advertisement</a></li>
             <li class="active"><a>Logged as: <?php  if (isset($_SESSION['Username'])) print_r($_SESSION['Username'])?></a> </li>
         </ul>
 
@@ -39,17 +40,9 @@
         Offers of collaboration or market cooperation (e.g. Advertisement cooperation)
         should be sent via e-mail with subject "Commercial offers".
         <br><br>
-        To report any technical issues connected to site (like any feature which seems
-        not too works or anything not to work correctly) fill the form below.<br>
+
     </p>
-        <form id="ContactForm">
-            <p>Subject:</p>
-            <input type="text" name="Subject">
-            <input type="submit" value="Send an issue"><br>
-        </form>
-        <textarea form="ContactForm" rows="8" cols="50" name="Contact">
-            Describe an issue here...
-        </textarea>
+
         <br><br>
     </div>
 

@@ -31,6 +31,7 @@ class UserRepository extends Repository {
         );
     }
 
+
     public function isUsernameAvailable(string $username): bool
     {
     try {
@@ -90,7 +91,7 @@ class UserRepository extends Repository {
             $stmt->execute();
             $pdo = null;
         } catch (PDOException $e) {
-            echo "Database connection error: ". $e->getMessage();
+            echo "Database connection error in User Repository: ". $e->getMessage();
             die();
         }
     }
@@ -116,4 +117,26 @@ class UserRepository extends Repository {
 
         return $result;
     }
+
+    public function getLastIDUser(): int
+    {
+        $Username = $_SESSION['Username'];
+        $pdo = $this->database->connect();
+        try {
+            $stmt = $pdo->prepare("select IDUser from user where Username = :Username");
+            $stmt->bindParam(':Username', $Username, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $ID = $result['IDUser'];
+
+            $pdo = null;
+
+            return $ID;
+
+        } catch (PDOException $e) {
+            echo "Database connection error in User Repository: ". $e->getMessage();
+            die();
+        }
+    }
+
 }
