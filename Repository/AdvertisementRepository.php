@@ -95,10 +95,10 @@ class AdvertisementRepository extends Repository
 
         foreach ($Ads as $Ad) {
             $result[] = new Advertisement(
-                $Ads['IDAdvertisement'],
-                $Ads['IDSubject'],
-                $Ads['IDUser'],
-                $Ads['description']
+                $Ad['IDSubject'],
+                $Ad['IDUser'],
+                $Ad['description'],
+                $Ad['IDAdvertisement']
             );
         }
 

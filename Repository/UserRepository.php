@@ -100,7 +100,7 @@ class UserRepository extends Repository {
     public function getUsers(): array {
         $result = [];
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM user
+            SELECT * FROM user 
         ');
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -111,6 +111,7 @@ class UserRepository extends Repository {
                 $user['Email'],
                 $user['Name'],
                 $user['Password'],
+                $user['Role'],
                 $user['IDUser']
             );
         }
@@ -137,6 +138,44 @@ class UserRepository extends Repository {
             echo "Database connection error in User Repository: ". $e->getMessage();
             die();
         }
+    }
+
+    public function getRole($Username): ?string
+    {
+        $Username = $_SESSION['Username'];
+        $pdo = $this->database->connect();
+        try {
+            $stmt = $pdo->prepare("select Role from user where Username = :Username");
+            $stmt->bindParam(':Username', $Username, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $Role = $result['Role'];
+
+            $pdo = null;
+
+            return $Role;
+
+        } catch (PDOException $e) {
+            echo "Database connection error in User Repository: ". $e->getMessage();
+            die();
+        }
+    }
+
+    public function deleteUser($Username)
+    {
+        $pdo = $this->database->connect();
+        try {
+            $stmt = $pdo->prepare("DELETE from user where user.Username = :Username");
+            $stmt->bindParam(':Username', $Username, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $pdo = null;
+
+        } catch (PDOException $e) {
+            echo "Database connection error in User Repository: ". $e->getMessage();
+            die();
+        }
+
     }
 
 }

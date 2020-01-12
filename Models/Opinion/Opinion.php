@@ -8,7 +8,7 @@ class Opinion  {
     private $Involvement;
     private $IDAdvertisement;
 
-    public function __construct($WellTeaching, $Knowledge, $Accessibility, $Involvement, $IDOpinion , $IDAdvertisement)
+    public function __construct($WellTeaching, $Knowledge, $Accessibility, $Involvement, $IDOpinion = 0 , $IDAdvertisement = 0)
     {
         $this -> WellTeaching = $WellTeaching;
         $this -> Knowledge = $Knowledge;

@@ -1,4 +1,5 @@
 <?php
+require_once ("Repository/UserRepository.php");
 
 class User {
     private $IDUser;
@@ -8,7 +9,7 @@ class User {
     private $Password;
     private $Role;
 
-    public function __construct($Username, $Email, $Name, $Password, $Role = "User", $IDUser = 1)
+    public function __construct($Username, $Email, $Name, $Password, $Role = "User", $IDUser)
     {
         $this -> Name = $Name;
         $this -> Email = $Email;
@@ -43,9 +44,16 @@ class User {
         return $this->Role;
     }
 
-    public function getID(): int
+    public function getID(): ?int
     {
         return $this->IDUser;
+    }
+
+    public function deleteUser($Username)
+    {
+        $Repo = new UserRepository();
+        $Repo -> deleteUser($Username);
+
     }
 
 }

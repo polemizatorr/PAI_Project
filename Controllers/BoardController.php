@@ -35,22 +35,34 @@ class BoardController extends AppController
         $Repo = new AdvertisementRepository();
         $Repo2 = new SubjectRepository();
 
-        $Ads = $Repo -> getAllAdvertisements(); //returns all ads from database
+        $Ads = $Repo->getAllAdvertisements(); //returns all ads from database
 
         foreach ($Ads as $Ad):
 
 
-            $Ad -> setEmail($Repo ->getEmail($Ad->getIDAdvertisement()));
-            $Ad -> setSubject($Repo ->getSubject($Ad->getIDAdvertisement()));
-            $Ad -> setTeachLevel($Repo ->getSubjectLevel($Ad->getIDAdvertisement()));
+            $Ad->setEmail($Repo->getEmail($Ad->getIDAdvertisement()));
+            $Ad->setSubject($Repo->getSubject($Ad->getIDAdvertisement()));
+            $Ad->setTeachLevel($Repo->getSubjectLevel($Ad->getIDAdvertisement()));
 
 
-            endforeach;
-
-
-
+        endforeach;
 
         $this->render('Ads', ['Ads' => [$Ads]]);
+    }
+
+    public function MyAds()
+    {
+        $Repo = new AdvertisementRepository();
+
+        $Ads = $Repo->getAllUserAdvertisements($_SESSION['Username']);
+
+        foreach ($Ads as $Ad):
+            $Ad->setEmail($Repo->getEmail($Ad->getIDAdvertisement()));
+            $Ad->setSubject($Repo->getSubject($Ad->getIDAdvertisement()));
+            $Ad->setTeachLevel($Repo->getSubjectLevel($Ad->getIDAdvertisement()));
+        endforeach;
+
+        $this->render('MyAds', ['Ads' => [$Ads]]);
     }
 
     public function addAdvertisement() //PLs may it work somehow XD
@@ -68,15 +80,15 @@ class BoardController extends AppController
             }
 
             $Repo = new SubjectRepository();
-            $Repo -> addSubject($SubjectName, $TeachLevel);
+            $Repo->addSubject($SubjectName, $TeachLevel);
 
-            $IDSubject = $Repo -> getLastIDSubject(); //returns ID of just added subject
+            $IDSubject = $Repo->getLastIDSubject(); //returns ID of just added subject
 
             $Repo2 = new UserRepository();
-            $IDUser = $Repo2 -> getLastIDUser(); //returns ID of currently logged user
+            $IDUser = $Repo2->getLastIDUser(); //returns ID of currently logged user
 
             $Repo3 = new AdvertisementRepository();
-            $Repo3 -> addAdvertisement($IDSubject, $IDUser, $Description); // Ads Adv to database
+            $Repo3->addAdvertisement($IDSubject, $IDUser, $Description); // Ads Adv to database
 
             $this->render('Ads', ['messages' => ['Advert added to database']]);
 
@@ -88,28 +100,55 @@ class BoardController extends AppController
         $this->render('addAdvertisement');
     }
 
-    public static function loadAdvertisements() :array
+    public static function loadAdvertisements(): array
     {
         $Repo = new AdvertisementRepository();
         $Repo2 = new SubjectRepository();
         $Repo3 = new UserRepository();
 
-        $Ads = $Repo -> getAllAdvertisements(); //returns all ads from database
+        $Ads = $Repo->getAllAdvertisements(); //returns all ads from database
         if ($Ads === null) die("Wypierdzielilo referencje");
 
         foreach ($Ads as $Ad):
-        {
-            $Ad -> setSubject($Repo2 -> getSubject($Ad -> getIDSubject()));
-            $Ad -> setUsername($Repo -> getUsername($Ad -> getUsername()));
-            $Ad -> setTeachLevel($Repo2 -> getTeachLevel($Ad -> getTeachLevel()));
-        }
+            {
+                $Ad->setSubject($Repo2->getSubject($Ad->getIDSubject()));
+                $Ad->setUsername($Repo->getUsername($Ad->getUsername()));
+                $Ad->setTeachLevel($Repo2->getTeachLevel($Ad->getTeachLevel()));
+            }
         endforeach;
 
         return $Ads;
 
     }
 
+    public function RenderAddOpinion()
+    {
+        $this -> render('AddOpinion');
+    }
 
+    public function AddOpinion()
+    {
+        if ($this -> isPost())
+        {
+            $WellTeaching = $_POST['WellTeaching'];
+            $Knowledge = $_POST['Knowledge'];
+            $Accessibility = $_POST['Accessibility'];
+            $Involvement = $_POST['Involvement'];
+
+            //print_r($_SESSION['IDAdv'.])
+
+            $Opinion = new Opinion($WellTeaching, $Knowledge, $Accessibility, $Involvement);
+            $Repo = new OpinionRepository();
+
+
+        }
+    }
+
+    public function DeleteUser($Username, User $user)
+    {
+        $user -> deleteUser($Username);
+        $this -> render('AdminPanel');
+    }
 
 
 

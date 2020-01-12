@@ -36,6 +36,7 @@ class SecurityController extends AppController
                 return;
             }
             $_SESSION['Username'] = $username;
+            $_SESSION['Role'] = $user -> getRole();
 
 
             $url = "http://$_SERVER[HTTP_HOST]/";
@@ -118,6 +119,16 @@ class SecurityController extends AppController
         header("Location: {$url}?page=login");
         $this->render("login", ['messages' => ['Accountant has been created.']]);
 
+    }
+
+    public function AdminPanel()
+    {
+        $Repo = new UserRepository();
+
+        $Users = $Repo -> getUsers();
+
+
+        $this->render('AdminPanel', ['Users' => [$Users]]);
     }
 
 

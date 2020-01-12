@@ -49,8 +49,17 @@ class Routing {
             ],
             'renderAdvertisement' => [
                 'controller' => 'BoardController',
-                'action' => 'renderAddAdvertisement']
-            ];
+                'action' => 'renderAddAdvertisement'
+            ],
+            'MyAds' => [
+                'controller' => 'BoardController',
+                'action' => 'MyAds'
+            ],
+            'AdminPanel' => [
+                'controller' => 'SecurityController',
+                'action' => 'AdminPanel'
+            ]
+        ];
     }
 
     public function run(){
