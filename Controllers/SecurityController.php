@@ -11,9 +11,6 @@ class SecurityController extends AppController
     public function Login()
     {
         $UserRepository = new UserRepository();
-
-
-
         if ($this->isPost()) {
 
             $username = $_POST['Username'];

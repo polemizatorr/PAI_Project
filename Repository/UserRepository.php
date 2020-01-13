@@ -31,6 +31,30 @@ class UserRepository extends Repository {
         );
     }
 
+    public function getOtherUsers(string $username): ?array
+    {
+        $result = [];
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM user where Username != :username
+        ');
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($users as $user) {
+            $result[] = new User(
+                $user['Username'],
+                $user['Email'],
+                $user['Name'],
+                $user['Password'],
+                $user['Role'],
+                $user['IDUser']
+            );
+        }
+
+        return $result;
+    }
+
 
     public function isUsernameAvailable(string $username): bool
     {

@@ -21,9 +21,36 @@ if ($UserRole !== 'Admin')
     <title>TeachUp Private Lessons</title>
     <link rel="stylesheet" href="/Public/CSS/PasswordRemind.css">
     <link rel="stylesheet" href="/Public/CSS/Sidebar.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+
+    <script src="../JS/Script.js"></script>
+    <script>
+        function getUsers() {
+            const apiUrl = "http://localhost:8080";
+            const $list = $('.users-list');
+            $.ajax({
+                url : apiUrl + '/?page=admin_users',
+                dataType : 'json'
+            })
+                .done((res) => {
+                    $list.empty();
+                    //robimy pętlę po zwróconej kolekcji
+                    //dołączając do tabeli kolejne wiersze
+                    res.forEach(el => {
+                        $list.append(`<tr>
+                         <td>${el.name}</td>
+                         <td>${el.surname}</td>
+                         <td>${el.email}</td>
+                         <td>${el.role}</td>
+                         </tr>`);
+                    })
+                });
+        }
+    </script>
 
 </head>
 <body style="background-color: #ffe587">
@@ -53,27 +80,23 @@ if ($UserRole !== 'Admin')
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Role</th>
-        <th scope="col">Action</th>
     </tr>
     </thead>
-    <tbody>
-    <?php foreach($Users[0] as $user): ?>
+    <tbody class="users-list">
+    <?php// foreach($Users as $user): ?>
         <tr>
             <th scope="row"><?= $user->getID(); ?></th>
             <td><?= $user->getUsername(); ?></td>
             <td><?= $user->getName(); ?></td>
             <td><?= $user->getEmail(); ?></td>
             <td><?= $user->getRole(); ?></td>
-            <td><a class="btn btn-warning" href="?page=DeleteUser"> Delete</a></td> <!-- Ajax? -->
-            <!--<td><button type="button" class="btn btn-warning" onclick="?page"> Delete</button> </td> -->
-
 
         </tr>
-    <?php endforeach ?>
+    <?php// endforeach ?>
     </tbody>
+
 </table>
+<button class="btn btn-warning" type="button" onclick="getUserss()">Get all users</button>
 
-
-</div>
 </body>
 </html>
