@@ -41,6 +41,12 @@ class UserRepository extends Repository {
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        if ($users === null)
+        {
+            die("query fail");
+            return null;
+        }
+
         foreach ($users as $user) {
             $result[] = new User(
                 $user['Username'],
@@ -52,7 +58,9 @@ class UserRepository extends Repository {
             );
         }
 
-        return $result;
+        //var_dump($result);
+        //die();
+        return $users;
     }
 
 

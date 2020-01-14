@@ -18,7 +18,28 @@ class AdminController extends AppController
     {
         $user = new UserRepository();
         header('Content-type: application/json');
-        http_response_code(200);
-        echo $user->getOtherUsers($_SESSION["Username"]) ? json_encode($user->getUsers()) : '';
+        http_response_code(200); // Here it fails?
+        //$var = $user->getOtherUsers($_SESSION["Username"]);
+
+
+        //var_dump(json_encode($var));
+
+
+
+        echo $user->getOtherUsers($_SESSION["Username"]) ? json_encode($user->getOtherUsers($_SESSION["Username"])) : '';
+
+    }
+
+    public function userDelete(): void
+    {
+
+        if (!isset($_POST['Username'])) {
+            http_response_code(404);
+           // die("Post died");
+            return;
+        }
+
+        $user = new UserRepository();
+        $user->deleteUser($_POST['Username']);
     }
 }

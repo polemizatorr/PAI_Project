@@ -9,7 +9,7 @@ class User {
     private $Password;
     private $Role;
 
-    public function __construct($Username, $Email, $Name, $Password, $Role = "User", $IDUser)
+    public function __construct($Username, $Email, $Name, $Password, $Role = "User", $IDUser = 1)
     {
         $this -> Name = $Name;
         $this -> Email = $Email;
@@ -44,9 +44,14 @@ class User {
         return $this->Role;
     }
 
-    public function getID(): ?int
+    public function getIDUser(): ?int
     {
         return $this->IDUser;
+    }
+
+    public function setUsername($Username): string
+    {
+        $this->Username = $Username;
     }
 
     public function deleteUser($Username)
