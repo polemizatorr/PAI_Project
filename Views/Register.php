@@ -18,12 +18,6 @@
             <a class="navbar-brand" href="?page=login" >TeachUp Private Lessons</a>
         </div>
 
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="?page=HomePage">Home</a></li>
-            <li class="active"><a href="?page=Ads">Ads</a></li>
-            <li class="active"><a href="?page=AboutUs">About us</a></li>
-            <li class="active"><a href="?page=contact">Contact</a></li>
-        </ul>
 
     </div>
 </nav>

@@ -15,6 +15,8 @@ class SecurityController extends AppController
 
             $username = $_POST['Username'];
             $password = $_POST['Password'];
+            //var_dump(password_hash($_POST['Password'], PASSWORD_DEFAULT));
+            //var_dump(password_hash($_POST['Password'], PASSWORD_DEFAULT));
 
             $user = $UserRepository->getUser($username);
 
@@ -28,7 +30,8 @@ class SecurityController extends AppController
                 return;
             }
 
-            if ($user->getPassword() !== $password) {
+
+            if (!password_verify($password, $user->getPassword())) {
                 $this->render('login', ['messages' => ['Wrong password!']]);
                 return;
             }
@@ -109,7 +112,7 @@ class SecurityController extends AppController
                 return;
             }
 
-            $UserRepository -> addUser($username, $password, $email, $name, "User");
+            $UserRepository -> addUser($username, password_hash($password, PASSWORD_DEFAULT), $email, $name, "User");
         }
 
         $url = "http://$_SERVER[HTTP_HOST]/";

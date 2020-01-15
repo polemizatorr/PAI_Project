@@ -97,6 +97,18 @@ h3{
 
     }
 
+    @media only screen and (max-device-width: 992px){
+
+        .sidebar{
+            font-size: 2em!important;
+            font-family: 'Boogaloo', cursive;
+        }
+
+        .navbar-nav{
+            font-size: 1.5em!important;
+        }
+    }
+
     h2{
         font-size: 1.3em!important;
     }

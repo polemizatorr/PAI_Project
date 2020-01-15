@@ -37,10 +37,15 @@ if (!isset($_SESSION['Username']))
 
     </div>
 </nav>
+
+
 <div class="container">
     <div class="logo">
         <img src="/Public/Images/TeachUp.png"/>
     </div>
+    <?php if (isset($messages)) foreach ($messages as $msg): echo "$msg<br>"?>
+    <br>
+    <?php endforeach;?>
     <p>TeachUp Private Lessons is a Web Application created
     for student and tutors to help them find someone to giving or taking
     private lessons. There is a possibility of creating profiles and

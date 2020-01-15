@@ -72,6 +72,10 @@ h4{
     btn btn-info{
         box-sizing: border-box;
     }
+
+    .navbar-nav{
+        font-size: 0.7em!important;
+    }
 }
 
 

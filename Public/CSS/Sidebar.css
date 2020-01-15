@@ -61,12 +61,17 @@ a:hover{
 @media only screen and (max-device-width: 992px){
 
     .sidebar{
-        font-size: 0.6em;
+        font-size: 2em!important;
         font-family: 'Boogaloo', cursive;
     }
 
     h4{
         font-family: 'Boogaloo', cursive;
         font-size: 0.6em;
+    }
+
+    .nav navbar-nav{
+        background-size: 3em;
+        margin-right: 0em;
     }
 }

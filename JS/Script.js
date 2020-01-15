@@ -20,7 +20,7 @@
                          <td>${el.Name}</td>
                          <td>${el.Email}</td>
                          <td>${el.Role}</td>
-                         <td><button class="btn btn-danger" type="button" onclick="deleteUser(${el.Username})"><i class="material-icons">Delete User</i></button></td>
+                         <td><button class="btn btn-danger" type="button" onclick="deleteUser('${el.Username}')"><i class="material-icons">Delete User</i></button></td>
                          </tr>`);
 
             })
@@ -38,12 +38,14 @@
             dataType: 'json',
             data : {
                 Username : Username
-            },
-            success: function() {
-                alert('Selected user successfully deleted from database!');
-                getUsers();
             }
-        });
+        })
+            .done(
+                () => {
+                    alert('Selected user successfully deleted from database!');
+                    getUsers();
+                }
+            );
     }
 
 

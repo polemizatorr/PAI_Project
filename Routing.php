@@ -1,4 +1,4 @@
-<?php
+<?php // administrator is passwd to DamianCzer
     require_once(__DIR__.'/Controllers/SecurityController.php');
     require_once(__DIR__.'/Controllers/BoardController.php');
     require_once ("Controllers/AdminController.php");

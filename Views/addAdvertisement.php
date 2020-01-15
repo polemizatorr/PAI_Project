@@ -46,10 +46,10 @@ if (!isset($_SESSION['Username']))
         Insert your skill level(Basic, mid, advanced):<br>
         <input type="text" name="TeachLevel"><br>
         <p>Add description to your Adv:</p>
-        <textarea rows="8" cols="50" name="Description" form="Adv">
+        <textarea rows="6" cols="25" name="Description" form="Adv" maxlength="400">
 
         </textarea><br>
-        <input type="submit" class="btn btn-success" value="Add Advert">
+        <input type="submit" class="btn btn-success my-btn" value="Add Advert">
 
     </form>
 

@@ -1,3 +1,10 @@
+<?php
+$url = "http://$_SERVER[HTTP_HOST]/";
+if (!isset($_SESSION['Username']))
+{
+    header("Location: {$url}?page=logout");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

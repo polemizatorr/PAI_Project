@@ -90,7 +90,7 @@ class BoardController extends AppController
             $Repo3 = new AdvertisementRepository();
             $Repo3->addAdvertisement($IDSubject, $IDUser, $Description); // Ads Adv to database
 
-            $this->render('Ads', ['messages' => ['Advert added to database']]);
+            $this->render('HomePage', ['messages' => ['Advert added to database']]);
 
         }
     }
@@ -134,8 +134,6 @@ class BoardController extends AppController
             $Knowledge = $_POST['Knowledge'];
             $Accessibility = $_POST['Accessibility'];
             $Involvement = $_POST['Involvement'];
-
-            //print_r($_SESSION['IDAdv'.])
 
             $Opinion = new Opinion($WellTeaching, $Knowledge, $Accessibility, $Involvement);
             $Repo = new OpinionRepository();

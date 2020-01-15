@@ -20,14 +20,13 @@ button{
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
-    display: flex-content: center;
+    flex-content: center;
 }
 
 .register{
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;;
-    justify
+    justify-content: center;
     text-align: center;
 }
 
@@ -67,8 +66,10 @@ h3{
 
 @media only screen and (max-device-width: 992px){
     body {
-        font-size: 1.7em!important;
+        font-size: 2em!important;
     }
+
+
     .container {
         flex-direction: column;
         margin-left: auto;
@@ -95,4 +96,9 @@ h3{
     btn btn-info{
         box-sizing: border-box;
     }
+
+    .navbar-nav{
+        font-size: 1em!important;
+    }
+
 }
