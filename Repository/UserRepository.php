@@ -210,4 +210,90 @@ class UserRepository extends Repository {
 
     }
 
+    public function getOtherUsersSorted(string $username): ?array
+    {
+        $result = [];
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM user where Username != :username order by user.Username asc
+        ');
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($users === null)
+        {
+            die("query fail");
+            return null;
+        }
+
+        foreach ($users as $user) {
+            $result[] = new User(
+                $user['Username'],
+                $user['Email'],
+                $user['Name'],
+                $user['Password'],
+                $user['Role'],
+                $user['IDUser']
+            );
+        }
+        return $users;
+    }
+
+    public function getOtherUsersSortedRole(string $username): ?array
+    {
+        $result = [];
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM user where Username != :username order by user.Role asc
+        ');
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($users === null)
+        {
+            return null;
+        }
+
+        foreach ($users as $user) {
+            $result[] = new User(
+                $user['Username'],
+                $user['Email'],
+                $user['Name'],
+                $user['Password'],
+                $user['Role'],
+                $user['IDUser']
+            );
+        }
+        return $users;
+    }
+
+    public function getOtherUsersSortedEmail(string $username): ?array
+    {
+        $result = [];
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM user where Username != :username order by user.Email asc
+        ');
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($users === null)
+        {
+            return null;
+        }
+
+        foreach ($users as $user) {
+            $result[] = new User(
+                $user['Username'],
+                $user['Email'],
+                $user['Name'],
+                $user['Password'],
+                $user['Role'],
+                $user['IDUser']
+            );
+        }
+        return $users;
+    }
+
+
 }

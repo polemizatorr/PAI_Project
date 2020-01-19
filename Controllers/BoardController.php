@@ -90,7 +90,7 @@ class BoardController extends AppController
             $Repo3 = new AdvertisementRepository();
             $Repo3->addAdvertisement($IDSubject, $IDUser, $Description); // Ads Adv to database
 
-            $this->render('HomePage', ['messages' => ['Advert added to database']]);
+            $this->render('HomePage', ['messages' => ['Advert has been added to System']]);
 
         }
     }
@@ -107,7 +107,6 @@ class BoardController extends AppController
         $Repo3 = new UserRepository();
 
         $Ads = $Repo->getAllAdvertisements(); //returns all ads from database
-        if ($Ads === null) die("Wypierdzielilo referencje");
 
         foreach ($Ads as $Ad):
             {

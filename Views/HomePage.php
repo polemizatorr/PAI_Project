@@ -43,7 +43,7 @@ if (!isset($_SESSION['Username']))
     <div class="logo">
         <img src="/Public/Images/TeachUp.png"/>
     </div>
-    <?php if (isset($messages)) foreach ($messages as $msg): echo "$msg<br>"?>
+    <p><?php if (isset($messages)) foreach ($messages as $msg): echo "$msg<br>"?></p>
     <br>
     <?php endforeach;?>
     <p>TeachUp Private Lessons is a Web Application created

@@ -67,8 +67,19 @@ class Routing {
             'admin_delete_user' => [
                 'controller' => 'AdminController',
                 'action' => 'userDelete'
+            ],
+            'admin_users_sorted' => [
+                'controller' => 'AdminController',
+                'action' => 'usersSorted'
+            ],
+            'admin_users_sorted_role' => [
+                'controller' => 'AdminController',
+                'action' => 'usersSortedRole'
+            ],
+            'admin_users_sorted_email' => [
+                'controller' => 'AdminController',
+                'action' => 'usersSortedEmail'
             ]
-
         ];
     }
 

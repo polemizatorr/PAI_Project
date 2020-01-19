@@ -30,6 +30,7 @@ if ($UserRole !== 'Admin')
 
 
     <script src="../JS/Script.js"></script>
+    <script src="../JS/SortingJS.js"></script>
     <script>
 
     </script>
@@ -80,6 +81,10 @@ if ($UserRole !== 'Admin')
 
 </table>
 <button class="btn btn-warning" type="button" onclick="getUsers()">Get all users</button>
+<button class="btn btn-warning" type="button" onclick="getSortedUsers()">Get users sorted by Name</button>
+<button class="btn btn-warning" type="button" onclick="getRoleSortedUsers()">Get users by Role</button>
+<button class="btn btn-warning" type="button" onclick="getEmailSortedUsers()">Get users by Email</button>
+
 
 </body>
 </html>
