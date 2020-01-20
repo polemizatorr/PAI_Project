@@ -79,6 +79,14 @@ class Routing {
             'admin_users_sorted_email' => [
                 'controller' => 'AdminController',
                 'action' => 'usersSortedEmail'
+            ],
+            'admin_users_only' => [
+                'controller' => 'AdminController',
+                'action' => 'usersOnly'
+            ],
+            'admin_give_admin' => [
+                'controller' => 'AdminController',
+                'action' => 'giveAdmin'
             ]
         ];
     }

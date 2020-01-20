@@ -48,4 +48,28 @@
             );
     }
 
+    function giveAdmin(Username) {
+        if (!confirm('Do you want to gibe this user Admin permission?')) {
+            return;
+        }
+        const apiUrl = "http://localhost:8080";
+        $.ajax({
+            url : apiUrl + '/?page=admin_give_admin',
+            method : 'POST',
+            dataType: 'json',
+            data : {
+                Username : Username
+            },
+            success()
+            {
+                alert('Added Ad in permission to user');
+            }
+        })
+            .done(
+                () => {
+                    alert('Selected user successfully deleted from database!');
+                }
+            );
+    }
+
 

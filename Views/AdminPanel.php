@@ -84,6 +84,7 @@ if ($UserRole !== 'Admin')
 <button class="btn btn-warning" type="button" onclick="getSortedUsers()">Get users sorted by Name</button>
 <button class="btn btn-warning" type="button" onclick="getRoleSortedUsers()">Get users by Role</button>
 <button class="btn btn-warning" type="button" onclick="getEmailSortedUsers()">Get users by Email</button>
+<button class="btn btn-warning" type="button" onclick="getOnlyUsers()">Get only users</button>
 
 
 </body>
