@@ -227,6 +227,23 @@ class UserRepository extends Repository {
 
     }
 
+    public function denyAdmin($Username)
+    {
+        $pdo = $this->database->connect();
+        try {
+            $stmt = $pdo->prepare("UPDATE user set user.Role = 'User' where user.Username = :Username");
+            $stmt->bindParam(':Username', $Username, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $pdo = null;
+
+        } catch (PDOException $e) {
+            echo "Database connection error in User Repository: ". $e->getMessage();
+            die();
+        }
+
+    }
+
     public function getOtherUsersSorted(string $username): ?array
     {
         $result = [];
@@ -317,6 +334,34 @@ class UserRepository extends Repository {
         $result = [];
         $stmt = $this->database->connect()->prepare("
             SELECT * FROM user where Username != :username and user.Role = 'User'
+        ");
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($users === null)
+        {
+            return null;
+        }
+
+        foreach ($users as $user) {
+            $result[] = new User(
+                $user['Username'],
+                $user['Email'],
+                $user['Name'],
+                $user['Password'],
+                $user['Role'],
+                $user['IDUser']
+            );
+        }
+        return $users;
+    }
+
+    public function getAdminsOnly(string $username): ?array
+    {
+        $result = [];
+        $stmt = $this->database->connect()->prepare("
+            SELECT * FROM user where Username != :username and user.Role = 'Admin'
         ");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();

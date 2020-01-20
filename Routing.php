@@ -87,6 +87,14 @@ class Routing {
             'admin_give_admin' => [
                 'controller' => 'AdminController',
                 'action' => 'giveAdmin'
+            ],
+            'admin_admins_only' => [
+                'controller' => 'AdminController',
+                'action' => 'AdminsOnly'
+            ],
+            'admin_deny_admin' => [
+                'controller' => 'AdminController',
+                'action' => 'DenyAdmin'
             ]
         ];
     }
